@@ -3,7 +3,7 @@
         <h1>Shoping list</h1>
         <label>
             <input placeholder="Press enter to add new item" type="text" v-model="newItem" @keyup.enter="addItem(newItem)"/>
-            <a class="add-btn btn" href="#" @click="addItem(newItem)">Add item</a>
+            <a class="add-btn btn" href="#" @click="addItem">Add item</a>
         </label>
         <div v-if="items.length> 0">
             <ul>
@@ -29,8 +29,8 @@ export default defineComponent({
         }
     },
     methods: {
-        addItem(item: string): void {
-            if(item.trim()) this.items.push(item)
+        addItem(): void {
+            if(this.newItem.trim()) this.items.push(this.newItem)
             this.newItem = ""
         },
         deleteItem(item: Item):void {
